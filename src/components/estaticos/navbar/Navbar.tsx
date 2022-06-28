@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import EmojiNatureSharpIcon from '@mui/icons-material/EmojiNatureSharp';
+import './Navbar.css'
 
 const pages = ['Home', 'Postagens', 'Tema', 'Cadastrar Tema'];
 const settings = ['Perfil', 'Conta', 'Dark Mode', 'Sair'];
@@ -36,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: "#F08080"}}>
+    <AppBar position="static" className="appbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <EmojiNatureSharpIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -132,7 +133,7 @@ const Navbar = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{

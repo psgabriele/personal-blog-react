@@ -3,6 +3,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {Typography, Box, Grid } from '@material-ui/core';
+import './Footer.css'
 
 function Footer() {
     return (

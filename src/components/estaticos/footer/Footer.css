@@ -1,0 +1,8 @@
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+}
+.MuiBox-root-8 {
+    padding: 10px;
+}

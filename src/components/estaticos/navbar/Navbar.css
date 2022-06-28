@@ -1,0 +1,48 @@
+.appbar {
+    background-color: #F08080!important;
+}
+.MuiButton-textPrimary {
+    color: white!important;
+    font-weight: bold!important;
+}
+.MuiTypography-h6 {
+    color: white!important;
+    font-size: 1.25rem!important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif!important;
+    font-weight: 600!important;
+    line-height: 1.6!important;
+    letter-spacing: 0.0075em!important;
+    margin-right: 2em!important;
+}
+.css-6hp17o-MuiList-root-MuiMenu-list {
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    outline: 0;
+    display: flex!important;
+    flex-direction: column!important;
+    justify-content: start!important;
+}
+.MuiButtonBase-root {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 90;
+    display: inline-flex;
+    outline: 0;
+    padding: 5px 10px 5px 10px!important;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
