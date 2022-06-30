@@ -1,0 +1,8 @@
+.text-decorator-none {
+    text-decoration: none;
+}
+.img-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

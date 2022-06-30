@@ -11,10 +11,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import EmojiNatureSharpIcon from '@mui/icons-material/EmojiNatureSharp';
+import {Link} from 'react-router-dom';
 import './Navbar.css'
 
 const pages = ['Home', 'Postagens', 'Tema', 'Cadastrar Tema'];
-const settings = ['Perfil', 'Conta', 'Dark Mode', 'Sair'];
+//const settings = ['Perfil', 'Conta', 'Dark Mode','Sair'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -128,7 +129,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Gabi Sá" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/800px-Sunflower_sky_backdrop.jpg" />
+                <Avatar alt="Your Name" src={require('../../../assets/img/perfil.png')} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -147,11 +148,22 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              <Link to='' className='text-menu-settings'>
+                <MenuItem onClick={handleCloseUserMenu}>Perfil</MenuItem>
+              </Link>
+              <Link to='' className='text-menu-settings'>
+                <MenuItem onClick={handleCloseUserMenu}>Conta</MenuItem>
+              </Link>
+              <MenuItem className='text-menu-settings' onClick={handleCloseUserMenu}>Dark Mode</MenuItem>
+              <Link to='/login' className='text-menu-settings'>
+                <MenuItem onClick={handleCloseUserMenu}>Sair</MenuItem>
+              </Link>
+              
+              {/*{settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))}*/}
             </Menu>
           </Box>
         </Toolbar>

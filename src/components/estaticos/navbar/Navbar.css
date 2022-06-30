@@ -49,3 +49,7 @@
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
 }
+.text-menu-settings {
+    text-decoration: none;
+    color:#000000!important;
+}
