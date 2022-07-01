@@ -2,3 +2,15 @@ body {
     background-color: #FFE4E1;
     color: #363636;
 }
+.titulo {
+    font-weight: bold!important;
+}
+.botao {
+    border-color: white!important;
+    background-color: #F08080!important;
+    color: white!important;
+    margin-top: 20px!important;
+}
+.postagens {
+    background-color: white!important;
+}

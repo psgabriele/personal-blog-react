@@ -1,0 +1,32 @@
+.imagem2 {
+
+    background-image: url(../../assets/img/sunset.png);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.text-title {
+    font-weight: bold!important;
+    color: #CD5C5C!important;
+    text-shadow: 2px 2px white!important;
+}
+.buttons {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+}
+.btnCadastrar {
+    background-color: #F08080!important;
+    color: white!important;
+    margin-right: 30px!important;
+    /*margin-bottom: 20px!important;*/
+    width: 200px;
+    height: 50px;
+}
+.btnCancelar {
+    background-color: #CD5C5C!important;
+    color: white!important;
+}

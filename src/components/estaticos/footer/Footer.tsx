@@ -10,29 +10,29 @@ function Footer() {
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "#F08080", height: "120px" }}>
+                    <Box className='box-1'>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-me nas redes sociais </Typography>
+                            <Typography variant="h5" align="center" gutterBottom className='texto'>Siga-me nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/psgabriele" target="_blank">
-                                <GitHubIcon style={{ fontSize: 60, color: "white" }} />
+                                <GitHubIcon className='redes' />
                             </a>
                             <a href="https://www.instagram.com/psgab/" target="_blank">
-                                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
+                                <InstagramIcon className='redes' />
                             </a>
                             <a href="https://www.linkedin.com/in/gabriele-s%C3%A1/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
+                                <LinkedInIcon className='redes' />
                             </a>
                         </Box>
                     </Box>
-                    <Box style={{ backgroundColor: "#CD5C5C", height: "60px" }}>
+                    <Box className='box-2'>
                         <Box paddingTop={1}>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright:</Typography>
+                            <Typography variant="subtitle2" align="center" gutterBottom className='texto' >© 2022 Copyright:</Typography>
                         </Box>
                         <Box>
                             <a target="_blank" href="https://www.linkedin.com/in/gabriele-s%C3%A1/">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">Gabriele Sá</Typography>
+                                <Typography variant="subtitle2" gutterBottom className='texto' align="center">Gabriele Sá</Typography>
                             </a>
                         </Box>
                     </Box>
