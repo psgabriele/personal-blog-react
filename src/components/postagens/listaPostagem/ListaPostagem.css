@@ -1,0 +1,14 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+.btn-update {
+    background-color: #CD5C5C!important;
+    color: white!important;
+}
+.btn-delete {
+    background-color: #F08080!important;
+    color: white!important;
+}
+.MuiBox-root-8 {
+    padding: 0!important;
+}
