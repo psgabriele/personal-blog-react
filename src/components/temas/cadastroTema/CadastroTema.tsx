@@ -75,9 +75,9 @@ function CadastroTema() {
     return(
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center">Formulário de Cadastro Tema</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center">Criar Tema</Typography>
                 <TextField id="descricao" label="descrição" value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} variant="outlined" name="descricao" margin="normal" fullWidth/>
-                <Button type="submit" variant="contained" color="primary">
+                <Button className="botao" type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
             </form>

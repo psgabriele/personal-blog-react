@@ -1,0 +1,10 @@
+.cursor{
+    cursor: pointer;
+}
+
+.btnModal{
+    border-color: #F08080!important;
+    background-color: white !important;
+    color: #F08080!important;
+    margin-top: 20px!important;
+}
