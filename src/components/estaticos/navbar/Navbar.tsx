@@ -11,13 +11,25 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import EmojiNatureSharpIcon from '@mui/icons-material/EmojiNatureSharp';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage';
 import './Navbar.css'
 
 const pages = ['Home', 'Postagens', 'Tema', 'Cadastrar Tema'];
+const rotas = ['/home', '/posts', '/temas', '/cadastrarTema']
 //const settings = ['Perfil', 'Conta', 'Dark Mode','Sair'];
 
 const Navbar = () => {
+
+  const [token, setToken] = useLocalStorage('token');
+  let navigate = useNavigate();
+
+  function goLogout() {
+    setToken('')
+    alert("Usuário deslogado")
+    navigate('/login')
+  }
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -88,11 +100,23 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              <Link to='/home'>
+                <MenuItem onClick={handleCloseNavMenu}>Home</MenuItem>
+              </Link>
+              <Link to='/home'>
+                <MenuItem onClick={handleCloseNavMenu}>Postagens</MenuItem>
+              </Link>
+              <Link to='/home'>
+                <MenuItem onClick={handleCloseNavMenu}>Tema</MenuItem>
+              </Link>
+              <Link to='/home'>
+                <MenuItem onClick={handleCloseNavMenu}>Cadastrar Tema</MenuItem>
+              </Link>
+              {/*{pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))}*/}
             </Menu>
           </Box>
 
@@ -115,6 +139,21 @@ const Navbar = () => {
             GABEE BLOG
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            
+              <Link to='/home' style={{color: 'white'}}>
+                <MenuItem onClick={handleCloseNavMenu}>Home</MenuItem>
+              </Link>
+              <Link to='/posts' style={{color: 'white'}}>
+                <MenuItem onClick={handleCloseNavMenu}>Postagens</MenuItem>
+              </Link>
+              <Link to='/temas' style={{color: 'white'}}>
+                <MenuItem onClick={handleCloseNavMenu}>Tema</MenuItem>
+              </Link>
+              <Link to='/formularioTema' style={{color: 'white'}}>
+                <MenuItem onClick={handleCloseNavMenu}>Cadastrar Tema</MenuItem>
+              </Link>
+
+          {/*
             {pages.map((page) => (
               <Button
                 key={page}
@@ -124,6 +163,7 @@ const Navbar = () => {
                 {page}
               </Button>
             ))}
+          */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -148,17 +188,17 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <Link to='' className='text-menu-settings'>
+              <Link to='/perfil' className='text-menu-settings'>
                 <MenuItem onClick={handleCloseUserMenu}>Perfil</MenuItem>
               </Link>
-              <Link to='' className='text-menu-settings'>
+              <Link to='/conta' className='text-menu-settings'>
                 <MenuItem onClick={handleCloseUserMenu}>Conta</MenuItem>
               </Link>
               <MenuItem className='text-menu-settings' onClick={handleCloseUserMenu}>Dark Mode</MenuItem>
-              <Link to='/login' className='text-menu-settings'>
+              <Box onClick={goLogout}>
                 <MenuItem onClick={handleCloseUserMenu}>Sair</MenuItem>
-              </Link>
-              
+              </Box>
+                
               {/*{settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

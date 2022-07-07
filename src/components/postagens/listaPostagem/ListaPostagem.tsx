@@ -1,12 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
+import Postagem from '../../../models/Postagem';
+import useLocalStorage from 'react-use-localstorage';
+import { busca } from '../../../services/Service';
 
 function ListaPostagem() {
 
+  const [posts, setPosts] = useState<Postagem[]>([])
+  const [token, setToken] = useLocalStorage('token');
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if(token == ''){
+      alert("Você precisa estar logado")
+      navigate('/login')
+    }
+  }, [token])
+
+  async function getPost() {
+    await busca("/postagens", setPosts, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  useEffect(() => {
+    getPost()
+  }, [posts.length])
+
   return (
     <>
+    {
+      posts.map(post => (
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
@@ -14,26 +42,26 @@ function ListaPostagem() {
               Postagens
             </Typography>
             <Typography variant="h5" component="h2">
-              Título
+              {post.titulo}
             </Typography>
             <Typography variant="body2" component="p">
-              Texto da Postagem
+              {post.texto}
             </Typography>
             <Typography variant="body2" component="p">
-              Tema
+              {post.tema?.descricao}
             </Typography>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5}>
 
-              <Link to="" className="text-decorator-none" >
+              <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft btn-update" size='small' color="primary" >
                     atualizar
                   </Button>
                 </Box>
               </Link>
-              <Link to="" className="text-decorator-none">
+              <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button className='btn-delete' variant="contained" size='small' color="secondary">
                     deletar
@@ -44,6 +72,8 @@ function ListaPostagem() {
           </CardActions>
         </Card>
       </Box>
+      ))
+    }
     </>)
 }
 
