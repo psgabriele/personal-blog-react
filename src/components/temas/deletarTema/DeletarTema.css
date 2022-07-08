@@ -1,3 +1,9 @@
 .marginRight {
     margin-right: 20px!important;
 }
+.btn-sim {
+    background-color: #F08080!important;
+}
+.btn-nao {
+    background-color: #CD5C5C!important;
+}
