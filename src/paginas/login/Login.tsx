@@ -7,17 +7,32 @@ import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import background from '../../assets/img/sunset.png';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/actions";
+import { addId, addToken } from "../../store/tokens/actions";
 
 function Login() {
     let navigate = useNavigate();
+
     const dispatch = useDispatch();
+
     const [token, setToken] = useState('');
+
     const[userLogin, setUserLogin] = useState<UserLogin>({
         id: 0,
+        nome: '',
         usuario: '',
+        foto: '',
         senha: '',
         token: ''
+    });
+
+    //State para pegar os dados retornados a API
+    const [respUserLogin, setRespUserLogin] = useState<UserLogin>({
+        id: 0,
+        nome: '',
+        usuario: '',
+        senha: '',
+        token: '',
+        foto: ""
     })
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
@@ -25,7 +40,7 @@ function Login() {
             ...userLogin,
             [e.target.name]: e.target.value
         })
-    }
+    };
 
     useEffect(()=>{
         if(token != '') {
@@ -34,11 +49,25 @@ function Login() {
         }
     }, [token])
 
+    useEffect(() => {
+        if (respUserLogin.token !== "") {
+    
+            // Verifica os dados pelo console (Opcional)
+            console.log("Token: " + respUserLogin.token)
+            console.log("ID: " + respUserLogin.id)
+    
+            // Guarda as informações dentro do Redux (Store)
+            dispatch(addToken(respUserLogin.token))
+            dispatch(addId(respUserLogin.id.toString()))    // Faz uma conversão de Number para String
+            navigate('/home')
+        }
+    }, [respUserLogin.token])
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
 
         try{
-            await login(`/usuarios/logar`, userLogin, setToken)
+            await login(`/usuarios/logar`, userLogin, setRespUserLogin)
 
             alert('Usuário logado com sucesso!')
         } catch(error){

@@ -53,7 +53,13 @@ function ListaPostagem() {
               {post.texto}
             </Typography>
             <Typography variant="body2" component="p">
-              {post.tema?.descricao}
+              Tema: {post.tema?.descricao}
+            </Typography>
+            <Typography variant="body2" component="p">
+              Postado por: {post.usuario?.nome}
+            </Typography>
+            <Typography variant="body2" component="p">
+              {post.data}
             </Typography>
           </CardContent>
           <CardActions>

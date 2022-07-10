@@ -7,6 +7,7 @@ import Postagem from "../../../models/Postagem";
 import { busca, buscaId, post, put } from "../../../services/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import User from "../../../models/User";
 
 function CadastroPost() {
 
@@ -33,13 +34,30 @@ function CadastroPost() {
         id: 0,
         titulo: '',
         texto: '',
-        tema: null
+        data: '',
+        tema: null,
+        usuario: null //adiciona o atributo usuário na postagem
+    })
+
+    //buscar o ID armazenado no Store do redux
+    const userId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    )
+
+    //useState para gerar o usuario
+    const [usuario, setUsuario] = useState<User>({
+    id: +userId,    // Faz uma conversão de String para Number
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
     })
 
     useEffect(() => {
         setPostagem({
             ...postagem, 
-            tema: tema
+            tema: tema,
+            usuario: usuario
         })
     }, [tema])
 
@@ -107,9 +125,9 @@ function CadastroPost() {
              <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center">Criar Postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="título" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" variant="outlined" name="texto" margin="normal" fullWidth />
+                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" variant="outlined" name="texto" margin="normal" fullWidth multiline rows={3}/>
                 
-                <FormControl fullWidth>
+                <FormControl fullWidth variant='filled'>
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select 
                         labelId="demo-simple-select-helper-label" 
@@ -120,7 +138,7 @@ function CadastroPost() {
                             }
                         })}>
                         {
-                            temas.map(tema => (
+                            temas.map((tema) => (
                                 <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
                             ))
                         }
