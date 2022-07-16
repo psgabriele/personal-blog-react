@@ -17,6 +17,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/actions';
 import { toast } from 'react-toastify';
+import User from '../../../models/User';
+import { useEffect, useState } from 'react';
+import { buscaId } from '../../../services/Service';
 
 const pages = ['Home', 'Postagens', 'Tema', 'Cadastrar Tema'];
 const rotas = ['/home', '/posts', '/temas', '/cadastrarTema']
@@ -64,6 +67,31 @@ const Navbar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const [users, setUsers] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
+  })
+
+   //buscar o ID armazenado no Store do redux
+   const userId = useSelector<TokenState, TokenState['id']>(
+    (state) => state.id
+)
+
+  async function getUserId() {
+    await buscaId(`/usuarios/${userId}`, setUsers, {
+      headers: {
+        'Authorization': token
+      }
+    })
+  }
+
+  useEffect(() => {
+    getUserId()
+  }, [])
 
   if(token !== ''){
     navbarComponent = <AppBar position="static" className="appbar">
@@ -183,9 +211,11 @@ const Navbar = () => {
               {page}
             </Button>
           ))}
-        */}
+          */}
         </Box>
-
+        <Box alignItems="center">
+          <Typography style={{color: "#FFE4E1"}}>{users.nome}</Typography>
+        </Box>
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

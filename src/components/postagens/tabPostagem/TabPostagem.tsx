@@ -25,8 +25,8 @@ function TabPostagem() {
           </Box>
         </TabPanel>
         <TabPanel value="2">
-          <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Sobre Nós</Typography>
-          <Typography variant="body1" gutterBottom color="textPrimary" align="justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos ut eveniet natus totam et, voluptate dicta tempore alias, odio nobis non eius cupiditate minima inventore pariatur! Ipsum itaque consectetur voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo velit consequuntur suscipit fugiat, nam quis quod quaerat veritatis et, vel ratione beatae, facere neque! Quo animi porro voluptate saepe deleniti? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci, officia aut quidem dolorum deserunt iure dolorem doloribus velit nobis quas consequatur at ullam odit, nesciunt est nulla nihil excepturi!</Typography>
+          <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Sobre GaBee</Typography>
+          <Typography variant="body1" gutterBottom color="textPrimary" align="justify">Blog desenvolvido no bootcamp de Dev Java Full Stack Júnior da Generation Brasil para colocar em prática toda a teoria vista durante o curso. Aqui você pode cadastrar temas e postagens, assim como atualizá-los ou deletá-los sempre que quiser. Sinta-se livre para explorar o blog! E, será de grande ajuda se você fizer uma postagem falando sobre alguma funcionalidade que fará com que ele fique mais legal. Suas dicas irão para o caderninho de implementações futuras e poderão fazer parte dessa aplicação. Obrigada!</Typography>
         </TabPanel>
       </TabContext>
     </>

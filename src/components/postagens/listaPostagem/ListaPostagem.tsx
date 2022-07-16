@@ -69,7 +69,7 @@ function ListaPostagem() {
               Postado por: {post.usuario?.nome}
             </Typography>
             <Typography variant="body2" component="p" color="textSecondary">
-              {post.data}
+            {new Date(post.data).toLocaleDateString()} às {new Date(post.data).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
             </Typography>
           </CardContent>
           <CardActions>
