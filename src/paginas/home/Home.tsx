@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
+import {Typography, Grid, Button} from '@material-ui/core';
 import './Home.css';
 import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import { Box } from '@mui/material';
 
 function Home() {
 
