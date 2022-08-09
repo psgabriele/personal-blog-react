@@ -7,16 +7,17 @@
 }
 .profileImage {
     border: 3px solid hsl(0, 0%, 100%);
-    border-radius: 50%;
-    width: 150px;
+    border-radius: 50%!important;
+    width: 150px!important;
 }
 .profile-name {
     font-size: 40px!important;
-    font-weight: 150!important;
+    font-weight: 150px!important;
+    margin-top: 10px!important;
 }
 .profile-email {
     font-size: 25px!important;
-    font-weight: 100!important;
+    font-weight: 100px!important;
 }
 .linha-perfil {
     margin-top: 20px;

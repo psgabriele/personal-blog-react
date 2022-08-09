@@ -116,7 +116,7 @@ function Login() {
             </Grid>
             <Grid xs={6} className='imagem' justifyContent="center" alignItems="center">
                 <Box p={2} className = 'img-login'>
-                    <img src={require('../../assets/img/star.png')} alt="Estrela dando joinha" />
+                    <img width="70%"src='https://2.bp.blogspot.com/-j-nkjljGYWI/VoCHKIXTb-I/AAAAAAAA6Ok/OgLMysJmOsI/s1600/abelhinhas%2Bem%2Bpng%2Be%2Bgifs%2B%252811%2529.png' alt="Abelhinha com flor na mão" />
                 </Box>
             </Grid>
         </Grid>

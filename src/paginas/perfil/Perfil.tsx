@@ -12,15 +12,7 @@ import './Perfil.css'
 
 function Perfil() {
 
-  const { id } = useParams<{ id: string }>();
-    
-    const [users, setUsers] = useState<User>({
-        id: 0,
-        nome: '',
-        usuario: '',
-        senha: '',
-        foto: ''
-    })
+    const { id } = useParams<{ id: string }>();
 
     const [endImg, setEndImg] = useState('./user.png');
   
@@ -52,7 +44,7 @@ function Perfil() {
   }, [token])
 
   async function getUserId() {
-    await buscaId(`/usuarios/${userId}`, setUsers, {
+    await buscaId(`/usuarios/${userId}`, setUser, {
       headers: {
         'Authorization': token
       }
@@ -63,33 +55,39 @@ function Perfil() {
     getUserId()
   }, [])
 
-  const [posts, setPosts] = useState<Postagem[]>([{
-    id: 0,
-        titulo: '',
-        texto: '',
-        data: '',
-        tema: null,
-        usuario: null
-  }])
+  const [posts, setPosts] = useState<Postagem[]>([])
 
-  async function getPostByUserId() {
-    await busca(`/postagens`, setPosts, {
+  const [user, setUser] = useState<User | any>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    foto: '',
+    senha: '',
+    postagem: null
+  });
+
+  useEffect(() => {
+    if (userId !== undefined) {
+      findById(userId)
+    }
+    console.log(user)
+  }, [userId]);
+
+  async function findById(id: string) {
+    buscaId(`/usuario/${userId}`, setUser, {
       headers: {
         'Authorization': token
       }
     })
-  }
 
-  useEffect(() => {
-    getPostByUserId()
-  }, [posts.length])
+  }
 
     return(
         <>
           <Box className="profileImageContainer">
-            {users.foto ? <img className="profileImage" src={users.foto} alt={users.nome} /> : <img className='profileImage' src={endImg}/>}
-            <Typography className="profile-name">{users.nome}</Typography>
-            <Typography className="profile-email">{users.usuario}</Typography>
+            {user.foto ? <img className="profileImage" src={user.foto} alt={user.nome} /> : <img className='profileImage' src={endImg}/>}
+            <Typography className="profile-name">{user.nome}</Typography>
+            <Typography className="profile-email">{user.usuario}</Typography>
           </Box>
           <hr className='linha-perfil' />
     {/*
